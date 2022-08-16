@@ -23,7 +23,7 @@ def invert(im):
     for x in range( width ):
         for y in range( height ):
             (red, green, blue) = im.getpixel((x, y))
-            im.putpixel((x,y), (255-red, 255-blue, 255-green))
+            im.putpixel((x,y), (255-red, 255-green, 255-blue))
 invert(bear)
 bear.save("tmp1_Vicky.png")
 # invert again so the tmp2 will be the original image colors

@@ -22,7 +22,7 @@ def invert( im ):
     for x in range( width ):
         for y in range( height ):
             (red, green, blue) = im.getpixel((x, y))
-            bear.putpixel( (x, y) , (255 - red, 255 - green, 255 - blue) )
+            im.putpixel( (x, y) , (255 - red, 255 - green, 255 - blue) )
 
 invert(bear)
 bear.save("tmp1_steph.png")
@@ -33,7 +33,7 @@ def invert_block( im ):
   for x in range( int(width/2), width ):
     for y in range( int(height/2) ):
       (red, green, blue) = im.getpixel((x, y))
-      bear.putpixel( (x, y) , (255 - red, 255 - green, 255 - blue) )
+      im.putpixel( (x, y) , (255 - red, 255 - green, 255 - blue) )
 
 # inverts to normal colors
 invert(bear)
