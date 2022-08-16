@@ -34,5 +34,35 @@ def binarize(im, thresh, startx, starty, endx, endy):
         else:
           im.putpixel((x, y), (0, 0, 0))
 
-binarize(bear, 100, 0, 0, 400, 600)                
+# binarize(bear, 100, 0, 0, 400, 600)                
 bear.save("tmp1_bear.png")
+
+''' Vertical Mirroring '''
+def mirrorVert(im):
+
+  (width, height) = im.size
+  
+  for x in range(width):
+    for y in range(int(height/2), height):
+      (red, green, blue) = im.getpixel((x, height - y))
+      im.putpixel((x, y), (red, green, blue))
+
+#mirrorVert(bear)                
+bear.save("tmp2_bear.png")
+
+''' Horizontal Mirroring '''
+def mirrorHoriz(im):
+
+  (width, height) = im.size
+  
+  for x in range(int(width/2), width):
+    for y in range(height):
+      (red, green, blue) = im.getpixel((width - x, y))
+      im.putpixel((x, y), (red, green, blue))
+
+mirrorHoriz(bear)                
+bear.save("tmp3_bear.png")
+
+''' Vertical Flipping '''
+def flipVert(im):
+  
