@@ -5,7 +5,7 @@ bear = Image.open( "bear.png" )
 print(bear.size)
 
 
-# Basic PIL Functions
+'''Basic PIL Functions'''
 # Accessing a pixel at location (100, 200)
 pixel = bear.getpixel( ( 100, 200) )
 print(pixel)
@@ -15,7 +15,7 @@ bear.putpixel( (100, 200), (0, 0, 0) )
 bear.save("tmp_Vicky.png")
 
 
-# Inverting colors
+'''Inverting colors'''
 def invert(im):
     # Find the dimensions of the image
     (width, height) = im.size
@@ -29,7 +29,7 @@ bear.save("tmp1_Vicky.png")
 # invert again so the tmp2 will be the original image colors
 invert(bear)
 
-# Modifying part of the image
+'''Modifying part of the image'''
 def invert_block(im):
     # for loop covers half of the width x and height y
     for x in range(300):
