@@ -76,5 +76,36 @@ def flipVert(im):
 
 # tmp4_bear = Image.open( "tmp4_bear.png" )
 
-flipVert(bear)
+#flipVert(bear)
 bear.save("tmp4_bear.png")
+
+''' Scale '''
+def scale(im):
+  (width, height) = im.size
+  scaledIm = Image.new('RGB', (int(width/2),int(height/2)))
+  for x in range(0, width-1, 2):
+    for y in range(0, height-1, 2):
+      (red, green, blue) = im.getpixel((x, y))
+      scaledIm.putpixel((int(x/2),int(y/2)), (red, green, blue))
+  # print(scaledIm.size)
+  return scaledIm
+
+#scale(bear).save("tmp5_bear.png")
+    
+
+''' Blur '''
+def blur(im):
+  (width, height) = im.size
+  blurredIm = Image.new('RGB', (width, height))
+  for x in range(width-1):
+    for y in range(height-1):
+      (r1, g1, b1) = im.getpixel((x, y))
+      (r2, g2, b2) = im.getpixel((x+1, y+1))
+      avgR = (r1 +r2)/2
+      avgG = (g1 + g2)/2
+      avgB = (b1 + b2)/2
+      blurredIm.putpixel((x,y), (int(avgR), int(avgG), int(avgB)))
+
+  return blurredIm
+
+#blur(bear).save("tmp6_bear.png")
