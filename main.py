@@ -60,9 +60,21 @@ def mirrorHoriz(im):
       (red, green, blue) = im.getpixel((width - x, y))
       im.putpixel((x, y), (red, green, blue))
 
-mirrorHoriz(bear)                
+#mirrorHoriz(bear)                
 bear.save("tmp3_bear.png")
 
 ''' Vertical Flipping '''
 def flipVert(im):
-  
+  (width, height) = im.size
+
+  for x in range(width):
+    for y in range(int(height/2)):
+      (topR, topG, topB) = im.getpixel((x, y))
+      (bottomR, bottomG, bottomB) = im.getpixel((x, height - y - 1))
+      im.putpixel((x, height - y - 1), (topR, topG, topB))
+      im.putpixel((x, y), (bottomR, bottomG, bottomB))
+
+# tmp4_bear = Image.open( "tmp4_bear.png" )
+
+flipVert(bear)
+bear.save("tmp4_bear.png")
